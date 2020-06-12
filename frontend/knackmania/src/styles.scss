@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styling */
+
+.stroke-round{
+    stroke-linecap: round;
+}
+
+.progress-animation{
+    animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+
+  .anchor-middle{
+      text-anchor: middle;
+  }
+
+  .icon-12{
+    width: 12rem !important;
+    height: 12rem;
+  }

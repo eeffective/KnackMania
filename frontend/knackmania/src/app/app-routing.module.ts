@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { KnackListComponent } from './components/knack-list/knack-list.component';
-import { KnackDetailsComponent } from './components/knack-details/knack-details.component';
 import { ExploreComponent } from './components/explore/explore.component';
+import { KnackListComponent } from './components/knack/knack-list/knack-list.component';
+import { KnackDetailsComponent } from './components/knack/knack-details/knack-details.component';
+import { KnackComponent } from './components/knack/knack.component';
+import { KnackHomeComponent } from './components/knack/knack-home/knack-home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'knacks/:category', component: KnackListComponent },
-  { path: 'knacks:name', component: KnackDetailsComponent },
-  { path: 'explore', component: ExploreComponent}
+  { path: '', redirectTo: 'knackmania/knacklist', pathMatch: 'full' },
+  { path: 'explore', component: ExploreComponent },
+  {
+    path: 'knackmania', component: KnackComponent, children: [
+      { path: 'home', component: KnackHomeComponent },
+      { path: 'list', component: KnackListComponent },
+      { path: 'details', component: KnackDetailsComponent }
+    ],
+  }
 ];
 
 @NgModule({
@@ -21,7 +26,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routingComponents = [
-  HomeComponent,
+  KnackComponent,
   KnackDetailsComponent,
   KnackListComponent,
   ExploreComponent

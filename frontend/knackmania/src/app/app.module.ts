@@ -4,18 +4,24 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { HomeComponent } from './components/home/home.component';
-import { TopnavComponent } from './components/topnav/topnav.component';
-import { BottomnavComponent } from './components/bottomnav/bottomnav.component';
 import { IconsModule } from './utilities/icons/icons.module';
+import { KnackComponent } from './components/knack/knack.component';
+import { KnackHomeComponent } from './components/knack/knack-home/knack-home.component';
+import { IconComponent } from './components/usage/icon/icon.component';
+import { CirclePercentageComponent } from './components/usage/circle-percentage/circle-percentage.component';
+import { BottomnavComponent } from './components/navigation/bottomnav/bottomnav.component';
+import { TopnavComponent } from './components/navigation/topnav/topnav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     TopnavComponent,
     BottomnavComponent,
-    routingComponents
+    routingComponents,
+    KnackComponent,
+    KnackHomeComponent,
+    IconComponent,
+    CirclePercentageComponent
   ],
   imports: [
     BrowserModule,

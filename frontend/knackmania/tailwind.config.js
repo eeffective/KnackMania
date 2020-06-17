@@ -8,6 +8,7 @@ module.exports = {
         shark: "#1c1d21",
         "shark-lighter": "#24272e",
         "shark-nav": "#2e3034",
+        "shark-lightest": "#6E6768",
         "sunset-orange": "#fe584a", // red gradient 1/2
         froly: "#f1867d", // red gradient 2/2
         "purple-heart": "#791ec0", // purple gradient 1/2

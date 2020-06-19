@@ -11,6 +11,7 @@ import { IconComponent } from './components/usage/icon/icon.component';
 import { CirclePercentageComponent } from './components/usage/circle-percentage/circle-percentage.component';
 import { BottomnavComponent } from './components/navigation/bottomnav/bottomnav.component';
 import { TopnavComponent } from './components/navigation/topnav/topnav.component';
+import { PromptComponent } from './components/prompt/prompt.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TopnavComponent } from './components/navigation/topnav/topnav.component
     KnackComponent,
     KnackHomeComponent,
     IconComponent,
-    CirclePercentageComponent
+    CirclePercentageComponent,
+    PromptComponent
   ],
   imports: [
     BrowserModule,

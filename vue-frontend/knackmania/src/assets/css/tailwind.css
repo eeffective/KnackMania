@@ -3,3 +3,32 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.stroke-round{
+    stroke-linecap: round;
+}
+
+.progress-animation{
+    animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+
+  .anchor-middle{
+      text-anchor: middle;
+  }
+
+  .icon-12{
+    width: 12rem !important;
+    height: 12rem;
+  }
+
+  .icon-3{
+    width: 2rem !important;
+    height: 2rem;
+    margin-bottom: 0.5em;
+  }

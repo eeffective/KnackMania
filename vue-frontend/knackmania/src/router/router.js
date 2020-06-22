@@ -1,17 +1,27 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import KnackDetails from "@/views/KnackDetails.vue";
+import KnacksList from "@/views/KnacksList.vue";
+import Home from "@/views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    component: () => import('../views/KnackDetails.vue'),
+    component: Home,
   },
   {
       path: "/home",
-      component: KnackDetails
+      component: Home
+  },
+  {
+    path: "/details",
+    component: KnackDetails
+  },
+  {
+    path: "/list",
+    component: KnacksList
   }
 ];
 

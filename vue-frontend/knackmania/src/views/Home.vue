@@ -1,0 +1,94 @@
+<template>
+  <div class="bg-shark justify-center text-white">
+    <div class="bg-shark-lighter p-5 pb-2rem mt-5 mr-8 ml-8 rounded-1 flex justify-center">
+      <div class="ml-point6 justify-around w-1/3">
+        <svg id="svg" viewBox="0 0 36 36" class="overflow-visible max-w-4/5 ">
+          <path
+            class="stroke-8 stroke-white fill-none"
+            d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path
+            class="progress-animation stroke-round stroke-8 fill-none stroke-sunset-orange"
+            stroke-dasharray="80 100"
+            d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text
+            x="18"
+            y="20.35"
+            class="fill-white anchor-middle font-serif font-hairline text-xxs"
+          >80%</text>
+          <text x="9" y="47" class="fill-white font-serif font-hairline text-xxs">EASY</text>
+        </svg>
+      </div>
+      <div class="justify-around w-1/3">
+        <svg id="svg" viewBox="0 0 36 36" class="overflow-visible max-w-4/5">
+          <path
+            class="stroke-8 stroke-white fill-none"
+            d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path
+            class="progress-animation stroke-round stroke-8 fill-none stroke-purple-heart"
+            stroke-dasharray="45 100"
+            d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text
+            x="18"
+            y="20.35"
+            class="fill-white anchor-middle font-serif font-hairline text-xxs"
+          >45%</text>
+          <text x="5" y="47" class="fill-white font-serif font-hairline text-xxs">MEDIUM</text>
+        </svg>
+      </div>
+      <div class="justify-around w-1/3">
+        <svg id="svg" viewBox="0 0 36 36" class="overflow-visible max-w-4/5 orange">
+          <path
+            class="stroke-8 stroke-white fill-none"
+            d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path
+            class="progress-animation stroke-round stroke-8 fill-none stroke-egg-blue"
+            stroke-dasharray="10 100"
+            d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text
+            x="18"
+            y="20.35"
+            class="fill-white anchor-middle font-serif font-hairline text-xxs"
+          >10%</text>
+          <text x="9" y="47" class="fill-white font-serif font-hairline text-xxs">HARD</text>
+        </svg>
+      </div>
+    </div>
+    <div class="mt-10">
+      <div class="text-center font-thin font-serif text-xl mb-4">Choose a category</div>
+      <div class="justify-center flex w-full bg-shark-lighter" style="height: 12rem;">
+        <AccountCircleOutline :size="200" class="bg-shark-lighter text-white" />
+      </div>
+      <div
+        class="font-serif text-center w-full bg-shark-lighter text-4xl tracking-wide-title"
+      >Random</div>
+    </div>
+  </div>
+</template>
+
+<script>
+import AccountCircleOutline from "vue-material-design-icons/AccountCircleOutline";
+
+export default {
+  components: {
+    AccountCircleOutline
+  }
+};
+</script>

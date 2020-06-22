@@ -23,6 +23,10 @@ module.exports = {
       stroke: {
         "sunset-orange": "#fe584a",
         white: "#fff",
+        "purple-heart": "#791ec0", // purple gradient 1/2
+        "egg-blue": "#02bcba", // blue/green gradient 1/2
+
+
       },
       strokeWidth: {
         "8": "8",

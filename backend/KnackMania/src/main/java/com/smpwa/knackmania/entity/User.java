@@ -1,9 +1,10 @@
 package com.smpwa.knackmania.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -16,9 +17,21 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
+    @JsonManagedReference
+    @ManyToMany(cascade = CascadeType.REMOVE)
+    @JoinTable(name = "saved_knacks", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "knack_id"))
+    private Set<Knack> savedKnacks = new HashSet<>();
 
     public Long getId() {
         return id;
+    }
+
+    public Set<Knack> getSavedKnacks() {
+        return savedKnacks;
+    }
+
+    public void setSavedKnacks(Set<Knack> savedKnacks) {
+        this.savedKnacks = savedKnacks;
     }
 
     public void setId(Long id) {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(path = "/api/knackmania")
+@RequestMapping(path = "/api/knacks")
 @CrossOrigin("*")
 public class KnackController {
 
@@ -22,7 +22,7 @@ public class KnackController {
         this.service = service;
     }
 
-    @GetMapping(path = "/{study}")
+    @GetMapping(path = "/study/{study}")
     public ResponseEntity<Collection<Knack>> getByStudy(@PathVariable String study) {
         try {
             return new ResponseEntity(this.service.getByStudy(study), HttpStatus.BAD_REQUEST);
@@ -31,7 +31,7 @@ public class KnackController {
         }
     }
 
-    @GetMapping(path = "/knack/{id}")
+    @GetMapping(path = "/id/{id}")
     public ResponseEntity<Knack> get(@PathVariable Long id){
         try {
             return new ResponseEntity(this.service.getById(id).get(), HttpStatus.OK);

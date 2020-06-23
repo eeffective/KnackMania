@@ -1,9 +1,10 @@
 package com.smpwa.knackmania.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "knack")
@@ -23,6 +24,17 @@ public class Knack {
     private String needs;
     @Column(name = "video_tutorial")
     private String videoTutorial;
+    @JsonBackReference
+    @ManyToMany(mappedBy = "savedKnacks")
+    private Set<User> users = new HashSet<>();
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
     public Long getId() {
         return id;

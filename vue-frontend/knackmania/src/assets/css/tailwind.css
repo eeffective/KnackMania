@@ -32,3 +32,29 @@
     height: 2rem;
     margin-bottom: 0.5em;
   }
+
+  .right-border {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  
+  .left-border {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+  
+  .rotate-90 {
+    transform: rotate(-90deg);
+  }
+  
+  .rotate-90-2 {
+    transform: rotate(90deg);
+  }
+  
+  .pt-3half {
+    padding-top: 3.5em;
+  }
+  
+  .bg-gradient-egg{
+    background: linear-gradient(0deg, rgba(55,240,135,1) 0%, rgba(2,188,186,1) 100%);
+  }

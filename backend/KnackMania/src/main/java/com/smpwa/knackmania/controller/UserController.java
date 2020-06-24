@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(value = "*", maxAge = 360)
+@CrossOrigin(value = "*", maxAge = 3600)
 @RequestMapping(path = "api/users")
 public class UserController {
 

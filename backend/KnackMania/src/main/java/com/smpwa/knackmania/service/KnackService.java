@@ -27,6 +27,14 @@ public class KnackService {
         }
     }
 
+    public Collection<Knack> getAll() {
+        try {
+            return this.repo.findAll();
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
+
     public Optional<Knack> getById(Long id) {
         try {
             return this.repo.findById(id);

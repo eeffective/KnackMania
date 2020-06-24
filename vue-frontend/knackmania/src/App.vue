@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <v-top-nav></v-top-nav>
     <router-view></router-view>
     <v-bottom-nav></v-bottom-nav>
@@ -9,6 +9,7 @@
 <script>
 import TopNavComponent from "./components/navigations/TopNavComponent";
 import BottomNavComponent from "./components/navigations/BottomNavComponent";
+window.axios = require("axios");
 
 export default {
   name: "App",

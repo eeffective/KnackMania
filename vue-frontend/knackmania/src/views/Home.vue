@@ -1,94 +1,65 @@
 <template>
-  <div class="bg-shark justify-center text-white">
-    <div class="bg-shark-lighter p-5 pb-2rem mt-5 mr-8 ml-8 rounded-1 flex justify-center">
-      <div class="ml-point6 justify-around w-1/3">
-        <svg id="svg" viewBox="0 0 36 36" class="overflow-visible max-w-4/5 ">
-          <path
-            class="stroke-8 stroke-white fill-none"
-            d="M18 2.0845
-                a 15.9155 15.9155 0 0 1 0 31.831
-                a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <path
-            class="progress-animation stroke-round stroke-8 fill-none stroke-sunset-orange"
-            stroke-dasharray="80 100"
-            d="M18 2.0845
-                a 15.9155 15.9155 0 0 1 0 31.831
-                a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <text
-            x="18"
-            y="20.35"
-            class="fill-white anchor-middle font-serif font-hairline text-xxs"
-          >80%</text>
-          <text x="9" y="47" class="fill-white font-serif font-hairline text-xxs">EASY</text>
-        </svg>
+  <div class="bg-shark text-white font-serif overflow-hidden">
+    <router-link to="/list">
+      <div class="mr-8 ml-8 bg-shark-lighter rounded-1 mt-12 flex justify-center">
+        <div class="w-4/5 p-8 ml-12 font-serif font-semibold">Saved Knacks</div>
+        <div class="right-border w-1/5 bg-egg-blue min-h-full justify-center flex pl-8">
+          <h5 class="rotate-90 pt-4 font-serif">GO</h5>
+        </div>
       </div>
-      <div class="justify-around w-1/3">
-        <svg id="svg" viewBox="0 0 36 36" class="overflow-visible max-w-4/5">
-          <path
-            class="stroke-8 stroke-white fill-none"
-            d="M18 2.0845
-                  a 15.9155 15.9155 0 0 1 0 31.831
-                  a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <path
-            class="progress-animation stroke-round stroke-8 fill-none stroke-purple-heart"
-            stroke-dasharray="45 100"
-            d="M18 2.0845
-                  a 15.9155 15.9155 0 0 1 0 31.831
-                  a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <text
-            x="18"
-            y="20.35"
-            class="fill-white anchor-middle font-serif font-hairline text-xxs"
-          >45%</text>
-          <text x="5" y="47" class="fill-white font-serif font-hairline text-xxs">MEDIUM</text>
-        </svg>
-      </div>
-      <div class="justify-around w-1/3">
-        <svg id="svg" viewBox="0 0 36 36" class="overflow-visible max-w-4/5 orange">
-          <path
-            class="stroke-8 stroke-white fill-none"
-            d="M18 2.0845
-                  a 15.9155 15.9155 0 0 1 0 31.831
-                  a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <path
-            class="progress-animation stroke-round stroke-8 fill-none stroke-egg-blue"
-            stroke-dasharray="10 100"
-            d="M18 2.0845
-                  a 15.9155 15.9155 0 0 1 0 31.831
-                  a 15.9155 15.9155 0 0 1 0 -31.831"
-          />
-          <text
-            x="18"
-            y="20.35"
-            class="fill-white anchor-middle font-serif font-hairline text-xxs"
-          >10%</text>
-          <text x="9" y="47" class="fill-white font-serif font-hairline text-xxs">HARD</text>
-        </svg>
-      </div>
+    </router-link>
+    <div class="h-40 mr-8 ml-8 bg-shark-lighter rounded-1 mt-12 flex justify-center">
+      <button
+        :disabled="index <= 0"
+        @click="prev"
+        class="left-border w-1/5 bg-egg-blue justify-center flex pl-8"
+      >
+        <h5 class="rotate-90-2 font-serif mt-16 mr-6 uppercase font-semibold">PREVIOUS</h5>
+      </button>
+      <div class="p-8 font-serif text-center uppercase">{{ allKnacks[index].name }}</div>
+      <button
+        :disabled="index == allKnacks.length -1"
+        @click="next "
+        class="right-border w-1/5 bg-egg-blue min-h-full justify-center flex pl-8"
+      >
+        <h5 class="rotate-90 text-center mr-6 mt-16 font-serif uppercase font-semibold">NEXT</h5>
+      </button>
     </div>
-    <div class="mt-10">
-      <div class="text-center font-thin font-serif text-xl mb-4">Choose a category</div>
-      <div class="justify-center flex w-full bg-shark-lighter" style="height: 12rem;">
-        <AccountCircleOutline :size="200" class="bg-shark-lighter text-white" />
-      </div>
-      <div
-        class="font-serif text-center w-full bg-shark-lighter text-4xl tracking-wide-title"
-      >Random</div>
+    <div class="flex justify-center mt-8">
+      <router-link v-bind:to="'/details/' + allKnacks[index].id">
+        <h5 class="px-10 py-2 bg-gradient-egg rounded-1 font-semibold">Submit</h5>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import AccountCircleOutline from "vue-material-design-icons/AccountCircleOutline";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  components: {
-    AccountCircleOutline
-  }
+  components: {},
+  data() {
+    return {
+      index: 0
+    };
+  },
+  methods: {
+    ...mapActions(["getKnacks"]),
+    next() {
+      this.index++;
+    },
+    prev() {
+      this.index--;
+    }
+  },
+  created() {},
+  computed: {
+    ...mapGetters(["allKnacks"]),
+    knacks() {
+      return this.getKnacks();
+    }
+  },
+  mounted() {},
+  updated() {}
 };
 </script>

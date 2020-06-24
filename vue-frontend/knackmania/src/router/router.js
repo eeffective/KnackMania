@@ -9,14 +9,14 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    component: Home,
+    component: Home
   },
-  {
+   {
       path: "/home",
       component: Home
   },
   {
-    path: "/details",
+    path: "/details/:id",
     component: KnackDetails
   },
   {
@@ -26,6 +26,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes: routes,
 });
 

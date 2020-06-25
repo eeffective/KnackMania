@@ -40,7 +40,7 @@ export default {
     }
   },
   created() {
-    axios.get(`http://localhost:8080/api/knacks/${this.id}`)
+    axios.get(`https://knackmania.herokuapp.com/api/knacks/${this.id}`)
       .then(response => {
         this.knack = response.data;
         console.log(this.knack)

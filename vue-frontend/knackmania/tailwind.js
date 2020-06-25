@@ -44,6 +44,7 @@ module.exports = {
       spacing: {
         "2rem": "2rem",
         point6: "0.6em",
+        "13": "3.5rem"
       },
       minHeight: {
         screen: "100vh",

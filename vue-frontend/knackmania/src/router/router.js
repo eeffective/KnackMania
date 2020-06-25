@@ -20,7 +20,7 @@ const routes = [
     component: KnackDetails
   },
   {
-    path: "/list",
+    path: "/saved/:id",
     component: KnacksList
   }
 ];

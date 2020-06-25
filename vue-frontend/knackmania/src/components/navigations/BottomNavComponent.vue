@@ -1,11 +1,12 @@
 <template>
   <div class="h-16 bg-shark-lighter items-center fixed bottom-0 left-0 w-full">
-    <div class="container flex justify-between">
+    <div class="nav-container flex justify-between">
       <router-link to="/home">
         <Home class="text-white mt-4" :size="36" />
       </router-link>
-      <router-link to="/list">
-        <List class="text-white" :size="36" @click="lol()" />
+      <Download v-if="showDownload" @click="install" :size="36" class="text-white" />
+      <router-link to="/saved/1">
+        <List class="text-white" :size="36" />
       </router-link>
     </div>
   </div>
@@ -14,14 +15,34 @@
 <script>
 import Home from "vue-material-design-icons/Home";
 import List from "vue-material-design-icons/FormatListBulleted";
+import Download from "vue-material-design-icons/Download";
+
+let installEvent;
 export default {
-  components: {
+    components: {
     Home,
     List,
+    Download
+  },
+  data() {
+    return {
+      showDownload: false
+    };
+  },
+  created() {
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      installEvent = e;
+      this.showDownload = true;
+    });
   },
   methods: {
-    lol() {
-      console.log("lol je stinks");
+    install(){
+      this.showDownload = false;
+      installEvent.prompt();
+      installEvent.userChoice.then(() => {
+        installEvent = null;
+      })
     }
   }
 };
@@ -29,3 +50,10 @@ export default {
 
 <style scoped>
 </style>
+
+
+  
+  methods: {
+    
+  }
+};

@@ -9,7 +9,6 @@
 <script>
 import TopNavComponent from "./components/navigations/TopNavComponent";
 import BottomNavComponent from "./components/navigations/BottomNavComponent";
-window.axios = require("axios");
 
 export default {
   name: "App",
@@ -19,8 +18,5 @@ export default {
     "v-bottom-nav": BottomNavComponent
   },
 
-  data: () => ({
-    //
-  })
-};
+}
 </script>

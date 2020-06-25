@@ -13,21 +13,9 @@ const getters = {
 const actions = {
   getKnacks({ commit }) {
     axios
-      .get("http://localhost:8080/api/knacks")
+      .get("https://knackmania.herokuapp.com/api/knacks")
       .then((response) => {
         commit("SET_KNACKS", response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        throw new Error(`API ${error}`);
-      });
-  },
-
-  getKnack({ commit }, id) {
-    axios
-      .get(`http://localhost:8080/api/knacks/${id}`)
-      .then((response) => {
-        commit("SET_KNACK", response.data);
         console.log(response.data);
       })
       .catch((error) => {
